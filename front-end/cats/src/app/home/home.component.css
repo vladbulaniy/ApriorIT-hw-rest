@@ -1,0 +1,20 @@
+.cat-details{
+  margin-top: 20px;
+}
+
+.form-control{
+  width: 100px;
+  display: inline;
+}
+#add-cat{
+  width: 100px;
+}
+.info{
+  /*margin-top: 20px;*/
+  color: red;
+  padding-top: 7px;
+}
+
+.cat span{
+  margin-top: 15px;
+}

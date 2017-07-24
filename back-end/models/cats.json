@@ -1,0 +1,36 @@
+[
+    {
+        "id": "1",
+        "name": "Salmon",
+        "age": 4,
+        "breed": "Sphinx"
+    },
+    {"id": "2",
+        "name": "BlackJack",
+        "age": 4,
+        "breed": "British"},
+    {
+        "id": "3",
+        "name": "Silver",
+        "age": 2,
+        "breed": "«Persian»"
+    },
+    {
+        "id": "4",
+        "name": "ThePhoenix2",
+        "age": 4,
+        "breed": "«Sphinx»"
+    },
+    {
+        "id": "5",
+        "name": "ThePhoenix2",
+        "age": 4,
+        "breed": "«Sphinx»"
+    },
+    {
+        "id": "17",
+        "name": "ThePhoenix12",
+        "age": 4,
+        "breed": "«Sphinx»"
+    }
+]
