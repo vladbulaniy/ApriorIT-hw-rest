@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   visible: boolean;
   addClick: boolean;
   catObj: any;
+  obj: any;
   constructor(
     private http: Http,
     private _cookieService: CookieService
@@ -35,12 +36,28 @@ export class HomeComponent implements OnInit {
     getCookie(key: string) {
     return this._cookieService.get(key);
   }
+  putCookie(key: string, value: any) {
+    return this._cookieService.put(key, value);
+  }
   change(data) {
     this.visible = true;
     this.catObj = data;
     console.log('cat obj = ', data);
   }
   add() {
+    this.catObj = false;
+    console.log('cat obj = ', this.catObj);
     this.addClick = true;
   }
+  delete(id) {
+    console.log('this.catObj.id = ', id)
+    const req = this.http.delete(serverUrl + '/cats/' + id);
+    req.subscribe(data => {
+      console.log('response = ', data);
+      this.response = data;
+      console.log('this.response = ', this.response);
+    });
+  }
+
+  // putCookie('refresh', refresh())
 }

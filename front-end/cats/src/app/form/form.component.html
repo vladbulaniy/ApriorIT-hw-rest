@@ -1,37 +1,28 @@
-<div class="container">
+<div class="container" *ngIf="visible">
   <div class="row">
     <div class="col-xs-12">
-      <label for="name">Cats name</label>
-      <input *ngIf="catObj" type="text" id="name" class="form-control" [ngModel]="catName" (ngModelChange)="onChangeName($event)">
-      <!--<input *ngIf="catObj" type="text" id="name" class="form-control" value="{{catName}}">-->
-      <input *ngIf="!catObj" type="text" id="name" class="form-control">
 
-      <label for="age">Cats age</label>
-      <input *ngIf="catObj" type="text" id="age" class="form-control" [ngModel]="catObj.age" (ngModelChange)="onChangeAge($event)">
-      <input *ngIf="!catObj" type="text" id="age" class="form-control">
+          <label for="name">Cats name</label>
+          <input *ngIf="catObj" type="text" id="name"  class="form-control " [ngModel]="catObj.name" (ngModelChange)="onChangeName($event)" required >
+          <!--<input *ngIf="catObj" type="text" id="name" class="form-control" value="{{catName}}">-->
+          <input *ngIf="!catObj" type="text" id="name" class="form-control" [ngModel]="catName" (ngModelChange)="onChangeName($event)" name="name" #name="ngModel" required >
 
-      <label for="breed">Cats breed</label>
-      <!--<select id="breed" class="form-control" #t (change)="callType(t.value)">-->
-        <!--<option *ngFor="#type of values" [value]="type" >{{type}}</option>-->
 
-        <!--<option value="Select">Select</option>-->
-        <!--<option value="British">British</option>-->
-        <!--<option value="Persian">Persian</option>-->
-        <!--<option value="Sphinx">Sphinx</option>-->
-      <!--</select>-->
+          <label for="age">Cats age</label>
+          <input *ngIf="catObj" type="text" id="age" class="form-control" [ngModel]="catObj.age" (ngModelChange)="onChangeAge($event)" required >
+          <input *ngIf="!catObj" type="text" id="age" class="form-control" [ngModel]="catAge" (ngModelChange)="onChangeAge($event)" required>
 
-      <!--<select [(ngModel)]="selectedBreeds" (ngModelChange)="onChange($event)" >-->
-        <!--<option *ngFor="let c of breeds" [ngValue]="c"> {{c.name}} </option>-->
-      <!--</select>-->
+          <label for="breed">Cats breed</label>
+          <select [(ngModel)]="selectedBreeds" (ngModelChange)="onChange($event)" id="breed" class="form-control">
+            <option *ngIf="catObj" > {{catObj.breed}} </option>
+            <option *ngFor="let c of breeds" [ngValue]="c"> {{c.name}} </option>
+          </select>
 
-      <select [(ngModel)]="selectedBreeds" (ngModelChange)="onChange($event)" id="breed">
-        <option *ngIf="catObj" > {{catObj.breed}} </option>
-        <option *ngFor="let c of breeds" [ngValue]="c"> {{c.name}} </option>
-      </select>
+          <button *ngIf="!catObj" type="submit" class="btn btn-info add-cat" (click)="add()">Add new cat</button>
+          <button *ngIf="catObj" type="submit" class="btn btn-info add-cat" (click)="save()">Save</button>
+          <button type="button" class="btn btn-danger" id="btn-cancel" (click)="cancel()">Cancel</button>
 
-      <button *ngIf="!visible" type="submit" class="btn btn-success" class="add-cat" (click)="save()">Add new cat</button>
-      <button *ngIf="visible" type="submit" class="btn btn-success" class="add-cat" (click)="save()">Update cat</button>
-      <button type="button" class="btn btn-danger" id="btn-cancel" (click)="cancel()">Cancel</button>
+
     </div>
 
   </div>

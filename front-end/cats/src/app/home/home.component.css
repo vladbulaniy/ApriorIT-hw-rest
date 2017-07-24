@@ -11,10 +11,14 @@
 }
 .info{
   /*margin-top: 20px;*/
-  color: red;
+  color: green;
   padding-top: 7px;
 }
 
 .cat span{
+  margin-top: 15px;
+}
+
+#refresh,#btn-add{
   margin-top: 15px;
 }
