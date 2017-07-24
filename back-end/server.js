@@ -12,10 +12,6 @@ const cors = require('cors');
 let Cat = my_db.model('cats');
 let User = my_db.model('user');
 
-// console.log('Cat = ', Cat.find(2));
-// const cats = require('./models/cats.json');
-// const user = require('./models/user.json');
-
 const app = express();
 
 app.use(cors());
@@ -112,33 +108,27 @@ app.post('/cats', (req, res, next) => {
 })
 
 app.put('/cats/:id', (req, res, next) => {
-console.log(req.body);
-// let splitArr= req.url.split('/');
-// let id = splitArr[splitArr.length-1];
+// console.log(req.body);
   let url = req.url;
   let id = getID(req);
+  getCat(id, req);
 
-
- getCat(id, req);
-
-req.cat.then(function (data) {
-  let catUpdate = req.body;
-  console.log('catUpdate = ', catUpdate);
-  Cat.update(catUpdate);
-  console.log('data333 = ', data);
-  res.status(200).send('The cat was updated');
-}).catch(function (err) {
-  console.log(err)
-})
-
-  // console.log(catUpdate);
-
+  req.cat.then(function (data) {
+    let catUpdate = req.body;
+    // console.log('catUpdate = ', catUpdate);
+    let cats = Cat.update(catUpdate);
+    console.log('data333 = ', cats);
+    res.status(200).send(cats);
+  }).catch(function (err) {
+    res.status(500).send(err);
+    console.log(err);
+  })
 })
 
 app.delete('/cats/:id', (req, res, next) => {
-
-  let splitArr = req.url.split('/');
-  let id = splitArr[splitArr.length - 1];
+  // let splitArr = req.url.split('/');
+  // let id = splitArr[splitArr.length - 1];
+  let id = getID(req);
   console.log('id = ', id);
   Cat.delete(id);
   res.status(200).send('The cat was deleted');

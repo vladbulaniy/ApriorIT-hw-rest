@@ -13,7 +13,6 @@ const fs = require('fs');
       } else {
         let promise = new Promise(function (resolve, reject) {
           try {
-            // fs.readFile(url + '.json', function (err, data) {
             fs.readFile('./models/cats.json', function (err, data) {
               var result;
               var cats = JSON.parse(data);
@@ -39,13 +38,18 @@ const fs = require('fs');
     }//find(id)function (id)
 
     this.add = function (newCat) {
-      console.log('newCat = ', newCat)
+      console.log('newCat = ', newCat);
+      let id;
+
 
       // fs.readFile(url + '.json', function (err, data) {
       fs.readFile('./models/cats.json', function (err, data) {
-        var cats = JSON.parse(data);
+        let cats = JSON.parse(data);
+        id = cats[cats.length-1].id+1;
+        newCat.id = id;
+        console.log('cats', id);
         console.log('all cats before', cats);
-        cats.push(newCat[0]);
+        cats.push(newCat);
         console.log('all cats after', cats);
         fs.writeFile('./models/cats.json', JSON.stringify(cats, '', 4), function (err) {
           if (err) {
@@ -61,12 +65,12 @@ const fs = require('fs');
       fs.readFile('./models/cats.json', function (err, data) {
         var cats = JSON.parse(data);
         console.log('all cats before', cats);
-        let updateID = updateData[0].id;
+        let updateID = updateData.id;
         console.log('updateID = ', updateID);
         cats.forEach(function (el) {
           if (el.id === updateID) {
             for (key in el) {
-              el[key] = updateData[0][key];
+              el[key] = updateData[key];
             }
           }
         })
@@ -78,6 +82,7 @@ const fs = require('fs');
           }
         })
       })
+
     } //this.update = function (updateData)
 
     this.delete = function (deleteID) {
@@ -87,7 +92,7 @@ const fs = require('fs');
         console.log('all cats before', cats);
         let temp;
         cats.forEach(function (el,index) {
-          if (el.id === deleteID) {
+          if (el.id == deleteID) {
             console.log('el = ', el);
             cats.splice(index,1);
           }

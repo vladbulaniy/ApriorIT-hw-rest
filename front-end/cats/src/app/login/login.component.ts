@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {CookieService} from 'angular2-cookie/core';
+import {Router} from '@angular/router';
 
 const serverUrl = 'http://localhost:3000';
 
@@ -17,7 +18,8 @@ token: any;
 response: any;
   constructor(
     private http: Http,
-    private _cookieService: CookieService
+    private _cookieService: CookieService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -46,7 +48,11 @@ response: any;
       console.log('response = ', this.token);
       this.putCookie( 'token', this.token);
       console.log('token = ', this.getCookie( 'token'));
+      if (this.token) {
+        this.router.navigate(['/home']);
+      }
     });
+
 
   }
 

@@ -1,36 +1,62 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "name": "Salmon",
-        "age": 4,
-        "breed": "Sphinx"
+        "age": "4485",
+        "breed": "Persian"
     },
-    {"id": "2",
+    {
+        "id": 2,
         "name": "BlackJack",
         "age": 4,
-        "breed": "British"},
+        "breed": "British"
+    },
     {
-        "id": "3",
+        "id": 3,
         "name": "Silver",
         "age": 2,
         "breed": "«Persian»"
     },
     {
-        "id": "4",
+        "id": 4,
         "name": "ThePhoenix2",
         "age": 4,
         "breed": "«Sphinx»"
     },
     {
-        "id": "5",
+        "id": 5,
         "name": "ThePhoenix2",
         "age": 4,
         "breed": "«Sphinx»"
     },
     {
-        "id": "17",
-        "name": "ThePhoenix12",
+        "id": 17,
+        "name": "Morengo",
         "age": 4,
         "breed": "«Sphinx»"
+    },
+    {
+        "name": "Name3",
+        "age": "1",
+        "breed": "Sphinx",
+        "id": 18
+    },
+    {
+        "name": "hjtek",
+        "age": "5",
+        "breed": "Sphinx",
+        "id": 23
+    },
+    {
+        "name": "fb",
+        "age": "4",
+        "breed": "British",
+        "id": 25
+    },
+    {
+        "name": "dtkdt",
+        "age": "5",
+        "breed": "Sphinx",
+        "id": 26
     }
 ]

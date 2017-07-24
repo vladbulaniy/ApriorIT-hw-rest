@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {CookieService} from 'angular2-cookie/core';
 
+import {ApiService} from '../api.service';
+
 const serverUrl = 'http://localhost:3000';
 
 @Component({
@@ -15,13 +17,22 @@ export class HomeComponent implements OnInit {
   visible: boolean;
   addClick: boolean;
   catObj: any;
+  token: string;
+  header: any;
   obj: any;
   constructor(
     private http: Http,
-    private _cookieService: CookieService
+    private _cookieService: CookieService,
+    // private headers: Headers,
+    // private Api: ApiService
   ) { }
 
   ngOnInit() {
+    // this.headers = new Headers({'Content-type': 'aplication/json'});
+
+    this.header = new Headers();
+    this.token = this.getCookie('token');
+    console.log('this token = ', this.token);
     this.visible = false;
     this.addClick = false;
     // console.log('token = ', this.getCookie( 'token'));
