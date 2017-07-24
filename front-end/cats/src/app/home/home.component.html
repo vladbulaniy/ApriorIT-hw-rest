@@ -1,5 +1,6 @@
 <div class="container">
   <app-form *ngIf="visible" [visible]="visible" [catObj] = "catObj"></app-form>
+  <app-form *ngIf="addClick" [visible]="addClick"></app-form>
   <button *ngIf="!visible" type="button" class="btn btn-success" id="btn-add" (click)="add()">Add new cat</button>
 
 
@@ -8,13 +9,13 @@
     <!--{{catsArr}}-->
     <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><b>Cats name</b></span>
     <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><b>Cats age</b></span>
-    <span class="col-xs-2 col-sm-8 col-md-2 col-lg-2"><b>Cats breed</b></span>
+    <span class="col-xs-8 col-sm-8 col-md-8 col-lg-8"><b>Cats breed</b></span>
     <div class="cat" *ngFor="let cat of catsArr">
       <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2 info">{{cat.name}}</span>
       <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2 info">{{cat.age}}</span>
       <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2 info">{{cat.breed}}</span>
       <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><button class="btn" (click)="change(cat)">Change</button></span>
-      <span class="col-xs-2 col-sm-4 col-md-2 col-lg-2"><button class="btn" (click)="delete()">Delete</button></span>
+      <span class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><button class="btn" (click)="delete()">Delete</button></span>
 
     </div>
 

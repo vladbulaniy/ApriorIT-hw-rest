@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   response: any;
   catsArr: any;
   visible: boolean;
+  addClick: boolean;
   catObj: any;
   constructor(
     private http: Http,
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.visible = false;
+    this.addClick = false;
     // console.log('token = ', this.getCookie( 'token'));
     const req = this.http.get(serverUrl + '/cats');
     req.subscribe(data => {
@@ -39,7 +41,6 @@ export class HomeComponent implements OnInit {
     console.log('cat obj = ', data);
   }
   add() {
-    this.visible = true;
+    this.addClick = true;
   }
-  onChange
 }

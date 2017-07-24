@@ -29,8 +29,8 @@
         <option *ngFor="let c of breeds" [ngValue]="c"> {{c.name}} </option>
       </select>
 
-      <button *ngIf="!visible" type="submit" class="btn btn-success" class="add-cat">Add new cat</button>
-      <button *ngIf="visible" type="submit" class="btn btn-success" class="add-cat">Update cat</button>
+      <button *ngIf="!visible" type="submit" class="btn btn-success" class="add-cat" (click)="save()">Add new cat</button>
+      <button *ngIf="visible" type="submit" class="btn btn-success" class="add-cat" (click)="save()">Update cat</button>
       <button type="button" class="btn btn-danger" id="btn-cancel" (click)="cancel()">Cancel</button>
     </div>
 
